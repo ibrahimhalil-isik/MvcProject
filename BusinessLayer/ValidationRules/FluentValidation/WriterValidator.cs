@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules.FluentValidation
 {
-    public class WriterValidation : AbstractValidator<Writer>
+    public class WriterValidator : AbstractValidator<Writer>
     {
-        public WriterValidation()
+        public WriterValidator()
         {
             RuleFor(w => w.WriterName).NotEmpty().WithMessage(" Yazar adı boş olmamalı ");
             RuleFor(w => w.WriterSurName).NotEmpty().WithMessage(" Yazar soyadı boş olmamalı ");

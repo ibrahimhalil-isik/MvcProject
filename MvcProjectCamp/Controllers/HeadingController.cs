@@ -16,7 +16,7 @@ namespace MvcProjectCamp.Controllers
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
-        HeadingValidation headingValidation = new HeadingValidation();
+        HeadingValidator headingValidation = new HeadingValidator();
 
         // GET: Heading
 
