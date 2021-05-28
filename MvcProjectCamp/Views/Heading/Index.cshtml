@@ -1,0 +1,192 @@
+﻿@using EntityLayer.Concrete
+
+@model List<Heading>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    string color = "";
+    string statusColor = "";
+    string headingStatus = "";
+    string checkStatus = "";
+    string buttonStatusColor = "";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlık İşlemleri</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <a href="/Heading/Add" class="btn bg-teal btn-sm">
+                        <i class="fas fa-check"></i>  Yeni Başlık Ekle
+                    </a>
+                    <br />
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 15%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 11%" class="text-center">
+                                Yazar
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 25%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.Category.CategoryId == 1)
+                            {
+                                color = "badge badge-success";
+
+                            }
+                            else if (item.Category.CategoryId == 2)
+                            {
+                                color = "badge badge-info";
+                            }
+                            else if (item.Category.CategoryId == 3)
+                            {
+                                color = "badge badge-primary";
+                            }
+                            else if (item.Category.CategoryId == 4)
+                            {
+                                color = "badge badge-secondary";
+                            }
+                            else if (item.Category.CategoryId == 5)
+                            {
+                                color = "badge badge-light";
+                            }
+                            else if (item.Category.CategoryId == 7)
+                            {
+                                color = "badge badge-danger";
+                            }
+                            else if (item.Category.CategoryId == 8)
+                            {
+                                color = "badge badge-dark";
+                            }
+                            else if (item.Category.CategoryId == 17)
+                            {
+                                color = "badge bg-teal";
+                            }
+
+                            switch (item.HeadingStatus)
+                            {
+                                case true:
+                                    statusColor = "badge rounded-pill bg-success";
+                                    buttonStatusColor = "btn btn-danger";
+                                    break;
+                                case false:
+                                    statusColor = "badge rounded-pill bg-danger";
+                                    buttonStatusColor = "btn btn-success";
+                                    break;
+                            }
+
+                            if (item.HeadingStatus == false)
+                            {
+
+                                checkStatus = "Aktif Yap";
+                            }
+                            else
+                            {
+                                checkStatus = "Pasif Yap";
+                            }
+
+                            if (@item.HeadingStatus)
+                            {
+                                headingStatus = "Aktif";
+                            }
+                            else
+                            {
+                                headingStatus = "Pasif";
+                            }
+                            <tr>
+                                <td>
+                                    @item.HeadingId
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <ul class="list-inline">
+                                        <li>
+                                            <img alt="Avatar"
+                                                 class="table-avatar"
+                                                 src="~/Images/admin.jpg">
+                                        </li>
+                                    </ul>
+                                    <ul class="list-inline badge rounded-pill bg-dark">
+                                        <li><a> @item.Writer.WriterName @item.Writer.WriterSurName </a>  </li>
+                                    </ul>
+                                </td>
+                                <td class="project-state">
+                                    <span class="@color"> @item.Category.CategoryName</span>
+                                </td>
+                                <td class="project-warning text-right">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading?headingId=@item.HeadingId">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        İçerikler
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Heading/Update?headingId=@item.HeadingId">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                    <a class="@buttonStatusColor btn-sm" href="/Heading/Delete?headingId=@item.HeadingId">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        @checkStatus
+                                    </a>
+                                    <span class="@statusColor">@headingStatus</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

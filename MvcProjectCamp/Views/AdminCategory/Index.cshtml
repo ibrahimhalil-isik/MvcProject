@@ -1,0 +1,79 @@
+﻿@using EntityLayer.Concrete
+
+@model List<Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"> Kategoriler </h3>
+
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Ara">
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori Adı</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Başlıklar</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@item.CategoryId</td>
+                                <td>@item.CategoryName</td>
+                                <td>
+                                    <a href="/AdminCategory/Delete?categoryId=@item.CategoryId"
+                                       class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Sil
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/AdminCategory/Update?categoryId=@item.CategoryId"
+                                       class="btn btn-info btn-sm">
+                                        <i class="fas fa-pencil-alt"></i> Güncelle
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="/Content/Index">
+                                        <i class="fas fa-folder"></i> Başlıklar
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </div>
+            <div class="card-header">
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 125px;">
+                        <div class="input-group-append">
+                            <a href="/AdminCategory/Add" class="btn bg-teal btn-sm">
+                                <i class="fas fa-check"></i>  Yeni Kategori</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

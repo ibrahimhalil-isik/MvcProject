@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@using Core.Utilities.Results.Abstract
+
+@model IDataResult<List<Category>>
+
+@{
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<br />
+<h3> Mvc Kamp Tablo Örneği - Kategori </h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th><b>Id</b></th>
+        <th><b>Kategori Adı</b></th>
+        <th><b>Açıklama</b></th>
+        <th><b>Durum</b></th>
+    </tr>
+    @foreach (var item in Model.Data)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            <td>@item.CategoryStatus</td>
+        </tr>
+    }
+</table>
