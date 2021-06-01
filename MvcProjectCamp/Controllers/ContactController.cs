@@ -11,6 +11,7 @@ namespace MvcProjectCamp.Controllers
 {
     public class ContactController : Controller
     {
+        Context _Context = new Context();
         ContactManager contactManager = new ContactManager(new EfContactDal());
         ContactValidator contactValidation = new ContactValidator();
         // GET: Contact
@@ -28,6 +29,14 @@ namespace MvcProjectCamp.Controllers
 
         public PartialViewResult ContactPartial()
         {
+            var receiverMail = _Context.Messages.Count(m =>m.ReceiverMail == "ibrahim@halil.com").ToString();
+            ViewBag.receiverMail = receiverMail;
+
+            var senderMail = _Context.Messages.Count(m => m.SenderMail == "ibrahim@halil.com").ToString();
+            ViewBag.senderMail = senderMail;
+
+            var contact = _Context.Contacts.Count().ToString();
+            ViewBag.contact = contact;
             return PartialView();
         }
     }

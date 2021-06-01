@@ -1,7 +1,7 @@
-﻿@model EntityLayer.Concrete.Contact
+﻿@model EntityLayer.Concrete.Message
 
 @{
-    ViewBag.Title = "GetContactDetails";
+    ViewBag.Title = "GetMessageDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -39,17 +39,17 @@
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>Konu : @Html.DisplayFor(c => c.Subject)</h5>
+                                <h5>Konu : @Html.DisplayFor(m => m.Subject)</h5>
                                 <br />
                                 <h6>
-                                    Mail: @Html.DisplayFor(c => c.UserMail)
-                                    <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
+                                    Mail: @Html.DisplayFor(m => m.SenderMail)
+                                    <span class="mailbox-read-time float-right">@Html.DisplayFor(m => m.MessageDate)</span>
                                 </h6>
                             </div>
                             <!-- /.mailbox-read-info -->
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Html.DisplayFor(c => c.Message)</p>
+                                <p>@Html.DisplayFor(m => m.MessageContent)</p>
                             </div>
                             <!-- /.mailbox-read-message -->
                             <div class="mailbox-controls with-border text-center">

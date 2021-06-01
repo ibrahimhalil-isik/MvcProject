@@ -1,4 +1,4 @@
-﻿<a href="#" class="btn btn-primary btn-block mb-3">Gelen Kutusu</a>
+﻿<a href="/Message/Add/" class="btn btn-primary btn-block mb-3"> Yeni Mesaj</a>
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Seçenekler</h3>
@@ -11,14 +11,21 @@
     <div class="card-body p-0">
         <ul class="nav nav-pills flex-column">
             <li class="nav-item active">
-                <a href="#" class="nav-link">
+                <a href="/Contact/Index" class="nav-link">
+                    <i class="fas fa-mail-bulk"></i> İletişim
+                    <span class="badge bg-primary float-right">@ViewBag.contact</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a href="/Message/Inbox" class="nav-link">
                     <i class="fas fa-inbox"></i> Gelen Mesajlar
-                    <span class="badge bg-primary float-right">12</span>
+                    <span class="badge bg-primary float-right">@ViewBag.receiverMail</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/Message/Sendbox" class="nav-link">
                     <i class="far fa-envelope"></i> Gönderilen Mesajlar
+                    <span class="badge bg-primary float-right">@ViewBag.senderMail</span>
                 </a>
             </li>
             <li class="nav-item">

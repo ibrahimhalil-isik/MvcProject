@@ -56,8 +56,10 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
@@ -81,6 +83,10 @@
     <Compile Include="Migrations\202105251916583_AddStatus.cs" />
     <Compile Include="Migrations\202105251916583_AddStatus.designer.cs">
       <DependentUpon>202105251916583_AddStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011038078_MigrationAddMessage.cs" />
+    <Compile Include="Migrations\202106011038078_MigrationAddMessage.designer.cs">
+      <DependentUpon>202106011038078_MigrationAddMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105251916583_AddStatus.resx">
       <DependentUpon>202105251916583_AddStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011038078_MigrationAddMessage.resx">
+      <DependentUpon>202106011038078_MigrationAddMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
