@@ -13,6 +13,7 @@
     string headingStatus = "";
     string checkStatus = "";
     string buttonStatusColor = "";
+    string Image = "";
 }
 
 <!DOCTYPE html>
@@ -135,6 +136,16 @@
                             {
                                 headingStatus = "Pasif";
                             }
+
+                                if (item.Writer.WriterImage == null)
+                                {
+                                    Image = "/Images/admin.jpg";
+                                }
+                                else
+                                {
+                                    Image = item.Writer.WriterImage;
+                                }
+
                             <tr>
                                 <td>
                                     @item.HeadingId
@@ -153,7 +164,7 @@
                                         <li>
                                             <img alt="Avatar"
                                                  class="table-avatar"
-                                                 src="~/Images/admin.jpg">
+                                                 src="@Image">
                                         </li>
                                     </ul>
                                     <ul class="list-inline badge rounded-pill bg-dark">

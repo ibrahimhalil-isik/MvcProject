@@ -6,7 +6,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{
+    string Image = "";
+}
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -29,6 +31,14 @@
                 <div class="row d-flex align-items-stretch">
                     @foreach (var item in Model)
                     {
+                        if (item.WriterImage == null)
+                        {
+                            Image = "/Images/admin.jpg" ;
+                        }
+                        else
+                        {
+                            Image = item.WriterImage;
+                        }
                         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                             <div class="card bg-light">
                                 <div class="card-header text-muted border-bottom-0">
@@ -44,7 +54,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-5 text-center">
-                                            <img src="~/Images/MyPhoto.jpg" alt="" class="rounded-circle img-fluid ">
+                                            <img src="@Image" alt="" class="rounded-circle img-fluid ">
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +63,7 @@
                                         <a href="#" class="btn btn-sm bg-teal">
                                             <i class="fas fa-comments"></i> Yazarın Başlıkları
                                         </a>
-                                        <a href="/Writer/Update?writerId=@item.WriterId" 
+                                        <a href="/Writer/Update?writerId=@item.WriterId"
                                            class="btn btn-primary btn-sm">
                                             <i class="fas fa-user-edit"></i> Profili Düzenle
                                         </a>
@@ -68,8 +78,8 @@
                     }
                 </div>
                 <br />
-                <a href="~/Writer/Add" 
-                    class="btn btn-info">
+                <a href="~/Writer/Add"
+                   class="btn btn-info">
                     <i class="fas fa-user-check"></i>  Yeni Yazar Ekle
                 </a>
                 <br /><br /><br />
