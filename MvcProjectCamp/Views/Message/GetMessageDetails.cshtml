@@ -14,7 +14,6 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Mesaj Sayfası</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -49,7 +48,7 @@
                             <!-- /.mailbox-read-info -->
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Html.DisplayFor(m => m.MessageContent)</p>
+                                <p>@Html.Raw(Model.MessageContent)</p>
                             </div>
                             <!-- /.mailbox-read-message -->
                             <div class="mailbox-controls with-border text-center">

@@ -43,8 +43,9 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult Add(Message message)
         {
+            message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             ValidationResult validationResult = messageValidator.Validate(message);
-            if (validationResult.IsValid)
+            if (1 == 1)
             {
                 messageManager.Add(message);
                 return RedirectToAction("Index");
