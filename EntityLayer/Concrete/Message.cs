@@ -28,5 +28,10 @@ namespace EntityLayer.Concrete
 
         public DateTime MessageDate { get; set; }
 
+        public bool IsDraft { get; set; }
+        public bool IsStar { get; set; }
+        public bool MessageStatus { get; set; }
+
+
     }
 }

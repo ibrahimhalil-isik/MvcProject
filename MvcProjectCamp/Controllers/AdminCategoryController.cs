@@ -1,4 +1,4 @@
-﻿using Business.ValidationRules.FluentValidation;
+﻿using BusinessLayer.ValidationRules.FluentValidation;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;

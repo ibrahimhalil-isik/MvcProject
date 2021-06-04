@@ -167,8 +167,10 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
@@ -187,6 +189,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\admin.jpg" />
+    <Content Include="Images\Gallery\Ankara.jpg" />
+    <Content Include="Images\Gallery\Batman.jpg" />
+    <Content Include="Images\Gallery\Hasankeyf.jpg" />
+    <Content Include="Images\Gallery\istanbul.jpg" />
+    <Content Include="Images\Gallery\Londra.jpg" />
+    <Content Include="Images\Gallery\Mısır.jpg" />
+    <Content Include="Images\Gallery\Paris.jpg" />
+    <Content Include="Images\Gallery\Tac Mahal.jpg" />
+    <Content Include="Images\Gallery\Venedik.jpg" />
     <Content Include="Images\MyLogo.jpg" />
     <Content Include="Images\MyPhoto.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -202,7 +213,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Images\image.jfif" />
+    <Content Include="Images\statistic.jfif" />
     <Content Include="Images\Mvc_camp_project_statistics.PNG" />
     <Content Include="Themes\AdminLTE-3.0.4\build\config\postcss.config.js" />
     <Content Include="Themes\AdminLTE-3.0.4\build\config\rollup.config.js" />
@@ -2037,6 +2048,10 @@
     <Content Include="Themes\AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="Themes\AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="Themes\AdminLTE-3.0.4\starter.html" />
+    <Content Include="Themes\colorlib-error-404-10\css\style.css" />
+    <Content Include="Themes\colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="Themes\colorlib-error-404-10\index.html" />
+    <Content Include="Themes\colorlib-error-404-10\readme.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2331,6 +2346,8 @@
     <Content Include="Views\Message\Sendbox.cshtml" />
     <Content Include="Views\Message\GetMessageDetails.cshtml" />
     <Content Include="Views\Message\Add.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\ImageFile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

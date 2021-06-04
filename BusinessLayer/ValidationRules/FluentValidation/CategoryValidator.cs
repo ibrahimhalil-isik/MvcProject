@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business.ValidationRules.FluentValidation
+namespace BusinessLayer.ValidationRules.FluentValidation
 {
     public class CategoryValidator : AbstractValidator<Category>
     {

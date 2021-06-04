@@ -56,9 +56,11 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfImageFileDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
     <Compile Include="Concrete\EntityFramework\Context.cs" />
@@ -88,6 +90,14 @@
     <Compile Include="Migrations\202106011038078_MigrationAddMessage.designer.cs">
       <DependentUpon>202106011038078_MigrationAddMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106041212531_MigrationAddContactDate.cs" />
+    <Compile Include="Migrations\202106041212531_MigrationAddContactDate.designer.cs">
+      <DependentUpon>202106041212531_MigrationAddContactDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106041446281_AddImageFileClass.cs" />
+    <Compile Include="Migrations\202106041446281_AddImageFileClass.designer.cs">
+      <DependentUpon>202106041446281_AddImageFileClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106011038078_MigrationAddMessage.resx">
       <DependentUpon>202106011038078_MigrationAddMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041212531_MigrationAddContactDate.resx">
+      <DependentUpon>202106041212531_MigrationAddContactDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041446281_AddImageFileClass.resx">
+      <DependentUpon>202106041446281_AddImageFileClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

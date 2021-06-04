@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFramework
 {
-    public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
+    public class EfImageFileDal : GenericRepository<ImageFile>, IImageFileDal
     {
     }
 }

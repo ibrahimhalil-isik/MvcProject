@@ -87,7 +87,7 @@
                                                 <b>@item.Subject</b> - @item.MessageContent.Substring(0, 30)...
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@item.MessageDate</td>
+                                            <td class="mailbox-date" style="width:16%">@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
                                         </tr>
                                     }
                                 </tbody>

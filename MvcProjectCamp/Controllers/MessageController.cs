@@ -45,7 +45,7 @@ namespace MvcProjectCamp.Controllers
         {
             message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             ValidationResult validationResult = messageValidator.Validate(message);
-            if (1 == 1)
+            if (validationResult.IsValid)
             {
                 messageManager.Add(message);
                 return RedirectToAction("Index");

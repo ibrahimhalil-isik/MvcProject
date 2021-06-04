@@ -42,7 +42,7 @@
                                 <br />
                                 <h6>
                                     Mail: @Html.DisplayFor(m => m.SenderMail)
-                                    <span class="mailbox-read-time float-right">@Html.DisplayFor(m => m.MessageDate)</span>
+                                    <span class="mailbox-read-time float-right">@Model.MessageDate.ToString("dd-MMM-yyyy")</span>
                                 </h6>
                             </div>
                             <!-- /.mailbox-read-info -->
