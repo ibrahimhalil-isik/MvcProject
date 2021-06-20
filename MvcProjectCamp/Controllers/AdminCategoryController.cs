@@ -16,8 +16,7 @@ namespace MvcProjectCamp.Controllers
         // GET: AdminCategory
 
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-
-        [HttpGet]
+                
         public ActionResult Index()
         {
             var result = categoryManager.GetAll();

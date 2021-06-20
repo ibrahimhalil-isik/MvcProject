@@ -43,6 +43,16 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetAll(m => m.SenderMail == "ibrahim@halil.com");
         }
 
+        public List<Message> GetAllRead()
+        {
+            return _messageDal.GetAll(m => m.ReceiverMail == "admin@gail.com").Where(m => m.IsRead == false).ToList();
+        }
+
+        public List<Message> IsDraft()
+        {
+            return _messageDal.GetAll(m => m.IsDraft == true);
+        }
+
         public void Update(Message message)
         {
             _messageDal.Update(message);

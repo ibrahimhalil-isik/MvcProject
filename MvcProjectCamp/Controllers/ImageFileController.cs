@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
+    
     public class ImageFileController : Controller
     {
         ImageFileManager imageFileManager = new ImageFileManager(new EfImageFileDal());
