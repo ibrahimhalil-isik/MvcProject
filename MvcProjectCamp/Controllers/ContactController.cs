@@ -13,6 +13,7 @@ namespace MvcProjectCamp.Controllers
     {
         Context _Context = new Context();
         ContactManager contactManager = new ContactManager(new EfContactDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         ContactValidator contactValidation = new ContactValidator();
         // GET: Contact
         public ActionResult Index()
@@ -37,6 +38,16 @@ namespace MvcProjectCamp.Controllers
 
             var contact = _Context.Contacts.Count().ToString();
             ViewBag.contact = contact;
+
+            var draftMail = messageManager.GetListSendbox().Where(m => m.IsDraft == true).Count();
+            ViewBag.draftMail = draftMail;
+
+            var readMessage = messageManager.GetListInbox().Where(m => m.IsRead == true).Count();
+            ViewBag.readMessage = readMessage;
+
+            var unreadMessage = messageManager.GetAllRead().Count();
+            ViewBag.unreadMessage = unreadMessage;
+
             return PartialView();
         }
     }

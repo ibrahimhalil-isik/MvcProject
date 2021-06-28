@@ -1,49 +1,63 @@
 ﻿@using EntityLayer.Concrete
-
 @model List<About>
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3> Hakkımızda Veri Girişi </h3>
+@{
+    string statusColor = "";
+    string buttonStatusColor = "";
+    string checkStatus = "";
+}
 
-<div class="card-body table-responsive p-0">
-    <table class="table table-hover text-nowrap">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Hakkımda Başlığı</th>
-                <th>Aktif Yap</th>
-                <th>Pasif Yap</th>
-            </tr>
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tbody>
-                <tr>
-                    <td>@item.AboutId</td>
-                    <td>Başlık</td>
-                    <td>
-                        <a href="#"
-                           class="btn btn-success btn-sm">
-                            Aktif Yap
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#"
-                           class="btn btn-danger btn-sm">
-                            Pasif Yap
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        }
-    </table>
-</div>
+<h2>Hakkımda Veri Listesi</h2>
 
-<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Hakkımda Başlığı</th>
+        <th>Durum</th>
+        <th>Aktif Yap</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AboutId</td>
+            <td>@item.AboutDetails1</td>
+            <td>
+                @switch (item.AboutStatus)
+                {
+                    case true:
+                        statusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-danger";
+                        break;
+                    case false:
+                        statusColor = "badge badge-danger";
+                        buttonStatusColor = "btn btn-success";
+                        break;
+                }
+                <span class="@statusColor">@item.AboutStatus</span>
+            </td>
+            <td>
+                <a href="/About/Update?aboutId=@item.AboutId" class="@buttonStatusColor btn-sm">
+                    @if (item.AboutStatus == false)
+                    {
 
-@Html.Action("AddAbuotPartial","About")
+                        checkStatus = "Aktif Yap";
+                    }
+                    else
+                    {
 
+                        checkStatus = "Pasif Yap";
+                    }
+                    @checkStatus
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.Action("AddAbuotPartial", "About")

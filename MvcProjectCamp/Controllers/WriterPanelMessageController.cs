@@ -15,6 +15,7 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
+        Context context = new Context();
         // GET: WriterPanelMessage
         public ActionResult Index()
         {
@@ -23,13 +24,15 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult WriterInbox()
         {
-            var MessageList = messageManager.GetListInbox();
+            string receiver = (string)Session["WriterEmail"];
+            var MessageList = messageManager.GetListInbox(receiver);
             return View(MessageList);
         }
 
         public ActionResult WriterSendBox()
         {
-            var result = messageManager.GetListSendbox();
+            string sender = (string)Session["WriterEmail"];
+            var result = messageManager.GetListSendbox(sender);
             return View(result);
         }
 
@@ -53,12 +56,13 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult AddMessage(Message message, string button)
         {
+            string sender = (string)Session["WriterEmail"];
             ValidationResult validationResult = messageValidator.Validate(message);
             if (button == "add")
             {
                 if (validationResult.IsValid)
                 {
-                    message.SenderMail = "ibrahim@gmail.om";
+                    message.SenderMail = sender;
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
@@ -78,11 +82,11 @@ namespace MvcProjectCamp.Controllers
                 if (validationResult.IsValid)
                 {
 
-                    message.SenderMail = "ibrahim@gmail.om";
+                    message.SenderMail = sender;
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
-                    return RedirectToAction("Draft");
+                    return RedirectToAction("WriterInbox");
                 }
                 else
                 {

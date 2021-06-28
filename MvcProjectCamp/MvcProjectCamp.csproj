@@ -2873,6 +2873,9 @@
     <Content Include="Views\Default\Headings.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\WriterRegister.cshtml" />
+    <Content Include="Views\Message\Draft.cshtml" />
+    <Content Include="Views\Message\GetDraftDetails.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

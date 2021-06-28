@@ -47,6 +47,21 @@ namespace MvcProjectCamp.Controllers
             return View();
         }
 
+        public ActionResult Update(int aboutId)
+        {
+            var result = aboutManager.GetById(aboutId);
+            if (result.AboutStatus == true)
+            {
+                result.AboutStatus = false;
+            }
+            else
+            {
+                result.AboutStatus = true;
+            }
+            aboutManager.Update(result);
+            return RedirectToAction("Index");
+        }
+
         public PartialViewResult AddAbuotPartial()
         {
             return PartialView();

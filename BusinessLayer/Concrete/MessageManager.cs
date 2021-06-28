@@ -43,9 +43,19 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetAll(m => m.SenderMail == "ibrahim@halil.com");
         }
 
+        public List<Message> GetListInbox(string receiver)
+        {
+            return _messageDal.GetAll(m => m.ReceiverMail == receiver);
+        }
+
+        public List<Message> GetListSendbox(string sender)
+        {
+            return _messageDal.GetAll(m => m.SenderMail == sender);
+        }
+                
         public List<Message> GetAllRead()
         {
-            return _messageDal.GetAll(m => m.ReceiverMail == "admin@gail.com").Where(m => m.IsRead == false).ToList();
+            return _messageDal.GetAll(m => m.ReceiverMail == "ibrahim@halil.com").Where(m => m.IsRead == false).ToList();
         }
 
         public List<Message> IsDraft()
