@@ -33,6 +33,19 @@ namespace BusinessLayer.Concrete
             return _contentDal.GetAll();
         }
 
+        public List<Content> GetContents(string param)
+        {
+            if (param == null)
+            {
+                return _contentDal.GetAll();
+            }
+            else
+            {
+                return _contentDal.GetAll(c => c.ContentValue.Contains(param));
+            }
+
+        }
+
         public List<Content> GetAllByHeadingId(int headingId)
         {
             return _contentDal.GetAll(c => c.HeadingId == headingId);

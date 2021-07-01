@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using BusinessLayer.ValidationRules.FluentValidation;
+using FluentValidation.Results;
 
 namespace MvcProjectCamp.Controllers
 {   
@@ -14,10 +18,35 @@ namespace MvcProjectCamp.Controllers
         Context context = new Context();
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterValidator writerValidator = new WriterValidator();
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id = 0)
         {
+            string param = (string)Session["WriterEmail"];
+            id = context.Writers.Where(w => w.WriterEmail == param).Select(x => x.WriterId).FirstOrDefault();
+            var result = writerManager.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            ValidationResult validationResult = writerValidator.Validate(writer);
+            if (validationResult.IsValid)
+            {
+                writerManager.Update(writer);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
 
@@ -95,10 +124,9 @@ namespace MvcProjectCamp.Controllers
             return RedirectToAction("MyHeading");
         }
 
-
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int page = 1)
         {
-            var headings = headingManager.GetAll();
+            var headings = headingManager.GetAll().ToPagedList(page, 4);
             return View(headings);
         }
 

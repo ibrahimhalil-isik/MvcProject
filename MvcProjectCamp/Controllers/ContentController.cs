@@ -23,6 +23,11 @@ namespace MvcProjectCamp.Controllers
             return View(result);
         }
 
+        public ActionResult GetAllContent(string param)
+        {
+            var values = contentManager.GetContents(param);
+            return View(values);
+        }
 
         [HttpGet]
         public ActionResult Add()
