@@ -21,12 +21,8 @@
     @Html.ValidationMessageFor(w => w.WriterSurName)
     <br />
     @Html.Label("Yazar Mail")
-    @Html.TextBoxFor(w => w.WriterMail, new { @class = "form-control" })
-    @Html.ValidationMessageFor(w => w.WriterMail)
-    <br />
-    @Html.Label("Yazar Şifresi")
-    @Html.TextBoxFor(w => w.WriterPassword, new { @class = "form-control" })
-    @Html.ValidationMessageFor(w => w.WriterPassword)
+    @Html.TextBoxFor(w => w.WriterEmail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(w => w.WriterEmail)
     <br />
     @Html.Label("Yazar Görsel Linki")
     @Html.TextBoxFor(w => w.WriterImage, new { @class = "form-control" })

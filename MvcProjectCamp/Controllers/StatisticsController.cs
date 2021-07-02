@@ -17,7 +17,7 @@ namespace MvcProjectCamp.Controllers
             var result1 = _Context.Categories.Count().ToString();
             ViewBag.result1 = result1;
 
-            ViewBag.result2 = _Context.Headings.Count(c => c.CategoryId == 17);
+            ViewBag.result2 = _Context.Headings.Count(c => c.CategoryId == 5);
             
 
             var result3 = (from c in _Context.Writers select c.WriterName.ToLower().IndexOf("a")).Count().ToString();
