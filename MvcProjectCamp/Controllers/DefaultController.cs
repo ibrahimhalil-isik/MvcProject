@@ -24,5 +24,10 @@ namespace MvcProjectCamp.Controllers
             var result = contentManager.GetAllByHeadingId(id);
             return PartialView(result);
         }
+
+        public ActionResult SweetAlert()
+        {
+            return View();
+        }
     }
 }
