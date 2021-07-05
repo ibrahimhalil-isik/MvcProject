@@ -222,6 +222,7 @@
     <Content Include="Images\MyLogo.jpg" />
     <Content Include="Images\MyPhoto.jpg" />
     <Content Include="Images\MyPhoto2.jpg" />
+    <Content Include="Images\MyTalentCard.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
