@@ -5,12 +5,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    string statusColor = "";
+    string buttonStatusColor = "";
+    string checkStatus = "";
+}
+
 <br />
 <table class="table table-bordered">
 
     <tr>
         <th>#</th>
-        <th>Kullanıcı Adı</th>
         <th>Yetki</th>
         <th>Durum</th>
         <th>Pasif Yap</th>
@@ -21,16 +26,42 @@
     {
         <tr>
             <th>@item.AdminId</th>
-            <td>@item.AdminUserName</td>
-            <td>@item.AdminRole</td>
-            <td>Aktif</td>
-            <td><a href="" class="btn btn-danger">Pasif Yap</a></td>
-            <td><a href="" class="btn btn-warning">Yetkisini Değiştir</a></td>
+            <td>@item.AdminRole.Role</td>
+            <td>
+                @switch (item.AdminStatus)
+                {
+                    case true:
+                        statusColor = "badge badge-success";
+                        buttonStatusColor = "btn btn-danger";
+                        break;
+                    case false:
+                        statusColor = "badge badge-danger";
+                        buttonStatusColor = "btn btn-success";
+                        break;
+                }
+                <span class="@statusColor">@item.AdminStatus</span>
+            </td>
+            <td>
+                <a href="/Authorization/Status?adminId=@item.AdminId" class="@buttonStatusColor btn-sm">
+                    @if (item.AdminStatus == false)
+                    {
+
+                        checkStatus = "Aktif Yap";
+                    }
+                    else
+                    {
+
+                        checkStatus = "Pasif Yap";
+                    }
+                    @checkStatus
+                </a>
+            </td>
+            <td><a href="/Authorization/Update?adminId=@item.AdminId" class="btn btn-warning">Yetkisini Değiştir</a></td>
         </tr>
     }
 
 
 </table>
-<a href="" class="btn btn-info">Yeni Admin Tanımla</a>
+<a href="/Register/Index/" class="btn btn-info">Yeni Admin Tanımla</a>
 
 

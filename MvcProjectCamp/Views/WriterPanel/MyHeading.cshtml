@@ -7,7 +7,9 @@
 }
 
 
-@{ string color = "";
+@{ 
+    string Image = "";
+    string color = "";
 }
 
 <!DOCTYPE html>
@@ -102,6 +104,14 @@
                                 color = "badge bg-pink ";
                             }
 
+                            if (item.Writer.WriterImage == null)
+                            {
+                                Image = "/Images/admin.jpg";
+                            }
+                            else
+                            {
+                                Image = item.Writer.WriterImage;
+                            }
 
                             <tr>
                                 <td>
@@ -119,7 +129,7 @@
                                 <td>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
+                                            <img alt="Avatar" class="table-avatar" src="@Image">
                                         </li>
 
                                     </ul>

@@ -126,7 +126,7 @@ namespace MvcProjectCamp.Controllers
 
         public ActionResult AllHeading(int page = 1)
         {
-            var headings = headingManager.GetAll().ToPagedList(page, 4);
+            var headings = headingManager.GetAll().ToPagedList(page, 10);
             return View(headings);
         }
 

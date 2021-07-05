@@ -47,7 +47,7 @@ namespace BusinessLayer.Concrete
                 AdminUserName = userNameHash,
                 AdminPasswordHash = passwordHash,
                 AdminPasswordSalt = passwordSalt,
-                AdminRole = "A"
+                AdminRoleId = 3
             };
             _adminService.Add(admin);
         }
