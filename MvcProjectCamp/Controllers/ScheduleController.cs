@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
+using MvcProjectCamp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,6 @@ namespace MvcProjectCamp.Controllers
         {
             var result = headingManager.GetAll();
             return View(result);
-        }
-    }
+        }		
+	}
 }

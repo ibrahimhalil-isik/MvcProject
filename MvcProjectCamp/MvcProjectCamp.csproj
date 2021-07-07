@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\CalenderController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -193,8 +194,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Calender.cs" />
     <Compile Include="Models\CaptchaResult.cs" />
     <Compile Include="Models\CategoryChart.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\TalentChart.cs" />
     <Compile Include="Models\WriterChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -224,6 +227,11 @@
     <Content Include="Images\MyPhoto.jpg" />
     <Content Include="Images\MyPhoto2.jpg" />
     <Content Include="Images\MyTalentCard.PNG" />
+    <Content Include="Images\writer\avatar.png" />
+    <Content Include="Images\writer\avatar2.png" />
+    <Content Include="Images\writer\avatar3.png" />
+    <Content Include="Images\writer\avatar4.png" />
+    <Content Include="Images\writer\avatar5.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -2956,6 +2964,7 @@
     <Content Include="Views\Authorization\Update.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\ImageFile\ImageAdd.cshtml" />
+    <Content Include="Views\Calender\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
