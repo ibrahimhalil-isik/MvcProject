@@ -56,11 +56,11 @@
                             <div class="row">
                                 @foreach (var item in Model)
                                 {
-                                <div class="col-sm-3">
-                                    <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery"                                       >
-                                        <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
+                                    <div class="col-sm-3">
+                                        <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
+                                            <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -69,6 +69,7 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+    <a href="/ImageFile/ImageAdd/" class="btn btn-info">Yeni Fotoğraf Ekle</a>
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
@@ -90,20 +91,20 @@
     <script src="~/Themes/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
     <!-- Page specific script -->
     <script>
-$(function () {
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
 
-    $('.filter-container').filterizr({gutterPixels: 3});
-    $('.btn[data-filter]').on('click', function() {
-      $('.btn[data-filter]').removeClass('active');
-      $(this).addClass('active');
-    });
-  })</script>
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })</script>
 </body>
 </html>
 

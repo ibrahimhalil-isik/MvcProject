@@ -9,6 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IImageFileService
     {
+        void Add(ImageFile imageFile);
         List<ImageFile> GetAll();
     }
 }

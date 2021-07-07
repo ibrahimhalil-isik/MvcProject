@@ -183,6 +183,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
@@ -2953,6 +2954,8 @@
     <Content Include="Views\Default\SweetAlert.cshtml" />
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\Update.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\ImageFile\ImageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
