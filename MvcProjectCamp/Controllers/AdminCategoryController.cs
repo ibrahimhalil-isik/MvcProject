@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
+    
     public class AdminCategoryController : Controller
     {
         // GET: AdminCategory

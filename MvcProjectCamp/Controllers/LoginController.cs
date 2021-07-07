@@ -35,7 +35,7 @@ namespace MvcProjectCamp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(loginDto.AdminUserName, false);
                 Session["AdminUserName"] = loginDto.AdminUserName;
-                return RedirectToAction("Index", "AdminCategory");
+                return RedirectToAction("Index", "Heading");
             }
             else
             {
@@ -57,7 +57,7 @@ namespace MvcProjectCamp.Controllers
 
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Headings", "Default");
+            return RedirectToAction("HomePage", "Home");
         }
 
         [HttpGet]
@@ -77,11 +77,11 @@ namespace MvcProjectCamp.Controllers
                     string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
             var captchaResponse = JsonConvert.DeserializeObject<CaptchaResult>(reply);
 
-            if (authService.WriterLogin(writerLoginDto) && captchaResponse.Success)
+            if (authService.WriterLogin(writerLoginDto))
             {
                 FormsAuthentication.SetAuthCookie(writerLoginDto.WriterEmail, false);
                 Session["WriterEmail"] = writerLoginDto.WriterEmail;
-                return RedirectToAction("MyContent", "WriterPanelContent");
+                return RedirectToAction("WriterProfile", "WriterPanel");
             }
             else
             {
